@@ -1,0 +1,56 @@
+package UniversalSpr;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION '”ниверсальный справочник'}
+{$RUNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  vclx,
+  vclactnband,
+  xmlrtl,
+  VclSmp,
+  PluginInterface,
+  EhLibADODataDrivers160;
+
+contains
+  UniversalSpr2Unit in 'UniversalSpr2Unit.pas' {UniversalSpr2Form},
+  UniversalSprUnit in 'UniversalSprUnit.pas' {UniversalSprForm},
+  ContractorUnit in 'ContractorUnit.pas' {ContractorForm},
+  EquipmentUnit in 'EquipmentUnit.pas' {EquipmentForm},
+  GrMaterialsUnit in 'GrMaterialsUnit.pas' {GrMaterialsForm},
+  InclFileUnit in 'InclFileUnit.pas' {InclFileForm},
+  MaterialUnit in 'MaterialUnit.pas' {MaterialForm},
+  NormdocUnit in 'NormdocUnit.pas' {NormdocForm},
+  Spr1JvCalcEditUnit in 'Spr1JvCalcEditUnit.pas' {Spr1JvCalcEditForm},
+  Spr1LabeledEditUnit in 'Spr1LabeledEditUnit.pas' {Spr1LabeledEditForm},
+  SteelMarkUnit in 'SteelMarkUnit.pas' {SteelMarkForm},
+  USprPlugin in 'USprPlugin.pas';
+
+end.

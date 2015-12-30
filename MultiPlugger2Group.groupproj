@@ -1,0 +1,324 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{FE746E75-4DB8-4C96-AA84-3F9E1E9BDF56}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="PluginInterface\PluginInterface.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="MultiPlug2\MultiPlug2.dproj">
+				<Dependencies>PluginInterface\PluginInterface.dproj</Dependencies>
+			</Projects>
+			<Projects Include="PasswChange\PasswChange.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="UniversalSpr\UniversalSpr.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ReportsEditor\ReportsEditor.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="kd\KD.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="consumption\Consumption.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="arrivals\arrivals.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="AddPerson\AddPerson.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ImportPlan\ImportPlan.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ApproveAct\ApproveAct.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="DailyPlan\DailyPlan.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="EditJob\EditJob.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ImportPassports\ImportPassports.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Journal\Journal.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="MaterialsEdit\MaterialsEdit.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Report1\Report1.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Report2\Report2.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Report3\Report3.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Report4\Report4.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Report5\Report5.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Report6\Report6.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="SteelEdit\SteelEdit.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="UserAdd\UserAdd.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Executor\Executor.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="PluginInterface">
+			<MSBuild Projects="PluginInterface\PluginInterface.dproj"/>
+		</Target>
+		<Target Name="PluginInterface:Clean">
+			<MSBuild Projects="PluginInterface\PluginInterface.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="PluginInterface:Make">
+			<MSBuild Projects="PluginInterface\PluginInterface.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MultiPlug2" DependsOnTargets="PluginInterface">
+			<MSBuild Projects="MultiPlug2\MultiPlug2.dproj"/>
+		</Target>
+		<Target Name="MultiPlug2:Clean" DependsOnTargets="PluginInterface:Clean">
+			<MSBuild Projects="MultiPlug2\MultiPlug2.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MultiPlug2:Make" DependsOnTargets="PluginInterface:Make">
+			<MSBuild Projects="MultiPlug2\MultiPlug2.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="PasswChange">
+			<MSBuild Projects="PasswChange\PasswChange.dproj"/>
+		</Target>
+		<Target Name="PasswChange:Clean">
+			<MSBuild Projects="PasswChange\PasswChange.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="PasswChange:Make">
+			<MSBuild Projects="PasswChange\PasswChange.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="UniversalSpr">
+			<MSBuild Projects="UniversalSpr\UniversalSpr.dproj"/>
+		</Target>
+		<Target Name="UniversalSpr:Clean">
+			<MSBuild Projects="UniversalSpr\UniversalSpr.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="UniversalSpr:Make">
+			<MSBuild Projects="UniversalSpr\UniversalSpr.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ReportsEditor">
+			<MSBuild Projects="ReportsEditor\ReportsEditor.dproj"/>
+		</Target>
+		<Target Name="ReportsEditor:Clean">
+			<MSBuild Projects="ReportsEditor\ReportsEditor.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ReportsEditor:Make">
+			<MSBuild Projects="ReportsEditor\ReportsEditor.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="KD">
+			<MSBuild Projects="kd\KD.dproj"/>
+		</Target>
+		<Target Name="KD:Clean">
+			<MSBuild Projects="kd\KD.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="KD:Make">
+			<MSBuild Projects="kd\KD.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Consumption">
+			<MSBuild Projects="consumption\Consumption.dproj"/>
+		</Target>
+		<Target Name="Consumption:Clean">
+			<MSBuild Projects="consumption\Consumption.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Consumption:Make">
+			<MSBuild Projects="consumption\Consumption.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="arrivals">
+			<MSBuild Projects="arrivals\arrivals.dproj"/>
+		</Target>
+		<Target Name="arrivals:Clean">
+			<MSBuild Projects="arrivals\arrivals.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="arrivals:Make">
+			<MSBuild Projects="arrivals\arrivals.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="AddPerson">
+			<MSBuild Projects="AddPerson\AddPerson.dproj"/>
+		</Target>
+		<Target Name="AddPerson:Clean">
+			<MSBuild Projects="AddPerson\AddPerson.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="AddPerson:Make">
+			<MSBuild Projects="AddPerson\AddPerson.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ImportPlan">
+			<MSBuild Projects="ImportPlan\ImportPlan.dproj"/>
+		</Target>
+		<Target Name="ImportPlan:Clean">
+			<MSBuild Projects="ImportPlan\ImportPlan.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ImportPlan:Make">
+			<MSBuild Projects="ImportPlan\ImportPlan.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ApproveAct">
+			<MSBuild Projects="ApproveAct\ApproveAct.dproj"/>
+		</Target>
+		<Target Name="ApproveAct:Clean">
+			<MSBuild Projects="ApproveAct\ApproveAct.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ApproveAct:Make">
+			<MSBuild Projects="ApproveAct\ApproveAct.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="DailyPlan">
+			<MSBuild Projects="DailyPlan\DailyPlan.dproj"/>
+		</Target>
+		<Target Name="DailyPlan:Clean">
+			<MSBuild Projects="DailyPlan\DailyPlan.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="DailyPlan:Make">
+			<MSBuild Projects="DailyPlan\DailyPlan.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="EditJob">
+			<MSBuild Projects="EditJob\EditJob.dproj"/>
+		</Target>
+		<Target Name="EditJob:Clean">
+			<MSBuild Projects="EditJob\EditJob.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="EditJob:Make">
+			<MSBuild Projects="EditJob\EditJob.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ImportPassports">
+			<MSBuild Projects="ImportPassports\ImportPassports.dproj"/>
+		</Target>
+		<Target Name="ImportPassports:Clean">
+			<MSBuild Projects="ImportPassports\ImportPassports.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ImportPassports:Make">
+			<MSBuild Projects="ImportPassports\ImportPassports.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Journal">
+			<MSBuild Projects="Journal\Journal.dproj"/>
+		</Target>
+		<Target Name="Journal:Clean">
+			<MSBuild Projects="Journal\Journal.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Journal:Make">
+			<MSBuild Projects="Journal\Journal.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MaterialsEdit">
+			<MSBuild Projects="MaterialsEdit\MaterialsEdit.dproj"/>
+		</Target>
+		<Target Name="MaterialsEdit:Clean">
+			<MSBuild Projects="MaterialsEdit\MaterialsEdit.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MaterialsEdit:Make">
+			<MSBuild Projects="MaterialsEdit\MaterialsEdit.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Report1">
+			<MSBuild Projects="Report1\Report1.dproj"/>
+		</Target>
+		<Target Name="Report1:Clean">
+			<MSBuild Projects="Report1\Report1.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Report1:Make">
+			<MSBuild Projects="Report1\Report1.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Report2">
+			<MSBuild Projects="Report2\Report2.dproj"/>
+		</Target>
+		<Target Name="Report2:Clean">
+			<MSBuild Projects="Report2\Report2.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Report2:Make">
+			<MSBuild Projects="Report2\Report2.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Report3">
+			<MSBuild Projects="Report3\Report3.dproj"/>
+		</Target>
+		<Target Name="Report3:Clean">
+			<MSBuild Projects="Report3\Report3.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Report3:Make">
+			<MSBuild Projects="Report3\Report3.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Report4">
+			<MSBuild Projects="Report4\Report4.dproj"/>
+		</Target>
+		<Target Name="Report4:Clean">
+			<MSBuild Projects="Report4\Report4.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Report4:Make">
+			<MSBuild Projects="Report4\Report4.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Report5">
+			<MSBuild Projects="Report5\Report5.dproj"/>
+		</Target>
+		<Target Name="Report5:Clean">
+			<MSBuild Projects="Report5\Report5.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Report5:Make">
+			<MSBuild Projects="Report5\Report5.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Report6">
+			<MSBuild Projects="Report6\Report6.dproj"/>
+		</Target>
+		<Target Name="Report6:Clean">
+			<MSBuild Projects="Report6\Report6.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Report6:Make">
+			<MSBuild Projects="Report6\Report6.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="SteelEdit">
+			<MSBuild Projects="SteelEdit\SteelEdit.dproj"/>
+		</Target>
+		<Target Name="SteelEdit:Clean">
+			<MSBuild Projects="SteelEdit\SteelEdit.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="SteelEdit:Make">
+			<MSBuild Projects="SteelEdit\SteelEdit.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="UserAdd">
+			<MSBuild Projects="UserAdd\UserAdd.dproj"/>
+		</Target>
+		<Target Name="UserAdd:Clean">
+			<MSBuild Projects="UserAdd\UserAdd.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="UserAdd:Make">
+			<MSBuild Projects="UserAdd\UserAdd.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Executor">
+			<MSBuild Projects="Executor\Executor.dproj"/>
+		</Target>
+		<Target Name="Executor:Clean">
+			<MSBuild Projects="Executor\Executor.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Executor:Make">
+			<MSBuild Projects="Executor\Executor.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="PluginInterface;MultiPlug2;PasswChange;UniversalSpr;ReportsEditor;KD;Consumption;arrivals;AddPerson;ImportPlan;ApproveAct;DailyPlan;EditJob;ImportPassports;Journal;MaterialsEdit;Report1;Report2;Report3;Report4;Report5;Report6;SteelEdit;UserAdd;Executor"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="PluginInterface:Clean;MultiPlug2:Clean;PasswChange:Clean;UniversalSpr:Clean;ReportsEditor:Clean;KD:Clean;Consumption:Clean;arrivals:Clean;AddPerson:Clean;ImportPlan:Clean;ApproveAct:Clean;DailyPlan:Clean;EditJob:Clean;ImportPassports:Clean;Journal:Clean;MaterialsEdit:Clean;Report1:Clean;Report2:Clean;Report3:Clean;Report4:Clean;Report5:Clean;Report6:Clean;SteelEdit:Clean;UserAdd:Clean;Executor:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="PluginInterface:Make;MultiPlug2:Make;PasswChange:Make;UniversalSpr:Make;ReportsEditor:Make;KD:Make;Consumption:Make;arrivals:Make;AddPerson:Make;ImportPlan:Make;ApproveAct:Make;DailyPlan:Make;EditJob:Make;ImportPassports:Make;Journal:Make;MaterialsEdit:Make;Report1:Make;Report2:Make;Report3:Make;Report4:Make;Report5:Make;Report6:Make;SteelEdit:Make;UserAdd:Make;Executor:Make"/>
+		</Target>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')" Project="$(BDS)\Bin\CodeGear.Group.Targets"/>
+	</Project>

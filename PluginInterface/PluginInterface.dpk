@@ -1,0 +1,63 @@
+package PluginInterface;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS OFF}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA OFF}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE RELEASE}
+{$ENDIF IMPLICITBUILDING}
+{$RUNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  vclx,
+  vclimg,
+  vcldb,
+  vclactnband,
+  xmlrtl,
+  VclSmp,
+  Jcl,
+  JvCore,
+  JvStdCtrls,
+  JvMM,
+  EhLib160,
+  fs16,
+  frx16,
+  frxDB16,
+  dbrtl,
+  adortl,
+  FMXTee;
+
+contains
+  UClassManager in 'UClassManager.pas',
+  UPlugin in 'UPlugin.pas',
+  GlobVars in 'GlobVars.pas',
+  CMKUserUnit in 'CMKUserUnit.pas' {CMKUserForm},
+  DanatelaSharedUnit in 'DanatelaSharedUnit.pas',
+  MagsoftMsgDlgUnit in 'MagsoftMsgDlgUnit.pas',
+  MagsoftSharedUnit in 'MagsoftSharedUnit.pas',
+  UserPluginsUnit in 'UserPluginsUnit.pas' {UserPluginsForm},
+  UTestPlugin in 'UTestPlugin.pas';
+
+end.

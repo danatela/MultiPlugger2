@@ -1,0 +1,53 @@
+package Consumption;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$RUNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  PluginInterface,
+  ReportsEditor,
+  KD;
+
+contains
+  UConsumptionPlugin in 'UConsumptionPlugin.pas',
+  consumptionFilterUnit in 'consumptionFilterUnit.pas' {consumptionFilterForm},
+  GabaritsUnit in 'GabaritsUnit.pas' {GabaritsForm},
+  MergeUnit in 'MergeUnit.pas' {MergeForm},
+  PaspDetailUnit in 'PaspDetailUnit.pas' {PaspDetailForm},
+  PassportsChildGridUnit in 'PassportsChildGridUnit.pas' {consumptionChildGridForm},
+  PassportsGridUnit in 'PassportsGridUnit.pas' {consumptionGridForm},
+  PassportTreeUnit in 'PassportTreeUnit.pas' {PassportTreeForm},
+  PassportUnit in 'PassportUnit.pas' {PassportForm},
+  SpPassportUnit in 'SpPassportUnit.pas' {SpPassportForm},
+  SelectDetailsUnit in 'SelectDetailsUnit.pas' {SelectDetailsForm},
+  SpArrivalUnit in 'SpArrivalUnit.pas' {SpArrivalForm},
+  SelectSpPlansUnit in 'SelectSpPlansUnit.pas' {SelectSpPlansForm};
+
+end.

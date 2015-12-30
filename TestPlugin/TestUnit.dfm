@@ -1,0 +1,31 @@
+object TestForm: TTestForm
+  Left = 0
+  Top = 0
+  Caption = 'TestForm'
+  ClientHeight = 434
+  ClientWidth = 663
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  Visible = True
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object LogMemo: TMemo
+    Left = 0
+    Top = 0
+    Width = 663
+    Height = 434
+    Align = alClient
+    TabOrder = 0
+    ExplicitLeft = 96
+    ExplicitTop = 80
+    ExplicitWidth = 185
+    ExplicitHeight = 89
+  end
+end

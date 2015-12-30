@@ -1,0 +1,43 @@
+package ReportsEditor;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$RUNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  PluginInterface,
+  frxe16;
+
+contains
+  UReportsEditorPlugin in 'UReportsEditorPlugin.pas',
+  FastReportUnit in 'FastReportUnit.pas' {FRForm},
+  MagsoftUniSelector2Unit in 'MagsoftUniSelector2Unit.pas' {MagsoftUniSelector2Form},
+  MagsoftUniSelectorUnit in 'MagsoftUniSelectorUnit.pas' {MagsoftUniSelectorForm};
+
+end.

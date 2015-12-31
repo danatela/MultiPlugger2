@@ -126,9 +126,10 @@ type
   TMyFind = record
   private
     FFind: Find;
+    FRange: WordRange;
   public
     property InnerFind: Find read FFind;
-    procedure FindReplace;
+    procedure Replace(FromText, ToText: string);
     procedure AssignField(Query: TADOQuery; Field: string; MatchField: string = ''; Emptify: Boolean = False);
     class operator Implicit(AFind: Find): TMyFind;
   end;
@@ -212,14 +213,18 @@ begin
   EventStatus := esCancel;
 end;
 
-procedure TMyFind.FindReplace;
+procedure TMyFind.Replace(FromText, ToText: string);
 begin
+  FFind := FRange.FormattedText.Find;
+  FFind.Text := FromText;
+  FFind.Replacement.Text := ToText;
   FFind.Execute(EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, wdReplaceOne, EmptyParam, EmptyParam, EmptyParam, EmptyParam);
 end;
 
 class operator TMyFind.Implicit(AFind: Find): TMyFind;
 begin
   Result.FFind := AFind;
+  Result.FRange := AFind.Parent as WordRange;
 end;
 
 procedure TMyFind.AssignField(Query: TADOQuery; Field: string; MatchField: string = ''; Emptify: Boolean = False);
@@ -232,7 +237,7 @@ begin
     try Replacement.Text := VarToStr(Query[MatchField]); except end;
     if Emptify and (Query.FieldByName(MatchField).AsFloat = 0.0) then
       Replacement.Text := '';
-    FindReplace;
+    Replace(Text, Replacement.Text);
   end;
 end;
 
@@ -336,59 +341,51 @@ var
 begin
   App.Connect;
   Doc := App.Documents.Add(ExtractFilePath(Application.ExeName) + 'Reports\ACTS\Act.dotx', EmptyParam, EmptyParam, True);
-  with TMyFind(Doc.Content.Find) do begin
-    InnerFind.Text := '${Brushed}';
+  with TMyFind(Doc.Content.Find), InnerFind do begin
+    Text := '${Brushed}';
     if ActsADOQuery['BRUSHED'] > 0 then
-      InnerFind.Replacement.Text := 'Покраска'
+      Replacement.Text := 'Покраска'
     else
-      InnerFind.Replacement.Text := '';
-    FindReplace;
+      Replacement.Text := '';
+    Replace(Text, Replacement.Text);
+    AssignField(ActsADOQuery, '${Koef}');
+    AssignField(ActsADOQuery, '${Rustless}');
+    AssignField(ActsADOQuery, '${ActNo}');
+    if not VarIsNull(ActsADOQuery['ACTDATE']) then begin
+      DD := IntToStr(DayOf(ActsADOQuery['ACTDATE']));
+      Month := FormatDateTime('mmmm', ActsADOQuery['ACTDATE']);
+      Year := IntToStr(YearOf(ActsADOQuery['ACTDATE']));
+    end;
+    Replace('${ActDD}', DD);
+    Replace('${ActMonth}', Month);
+    Replace('${ActYear}', Year);
+    // Gj ekbwfv ckjyf djlbkb?
+    // Rfr dblyj? yfgjrfp
+    // bpdtcnyj? xnj ckjys d lbrjdbyre e yfc
+    // Nfr pf ckjyjv njkgs ptdfr [jlbkb
+    // Jnrelf yb djpmvbcm? yfdcnhtxe Vjcmrf bv
+    // Edbltdib ckjyf? ye yf ytuj vtnfnmcz
+    // B kfznm? b dbp;fnm b hdfnmcz
+    // Ye? nfr b ktptn d lhfre c ybv
+    // - Cjctlrf? gthtcnfym chfvbnmcz -
+    // Tq ifdrf ujdjhbn - Nt,t km c ckjyjv djpbnmcz
+    // Cvjnhb^ ns e; [hbgbim? f jy bl`n ct,t dgth`l
+    // B kf. ndjtuj cjdctv yt ghbvtxftn
+    // "[? '[ - tq Vjcmrf jndtxftn
+    // - Djn nj-nj vyt b le[e ghblf`n?
+    // Xnj z? cjdctv ,tp lhfrb?
+    // Vjue gjgfcnm d ,jkmibt pf,bzrb
+    // Gecrfq ;t ujdjhzn cj,frb^
+    // Fq? Vjcmrf! Pyfnm? jyf cbkmyf?
+    // Xnj kftn yf ckjyf!
+    AssignField(ActsADOQuery, '${MasterFIO}');
+    AssignField(ActsADOQuery, '${ControllerFIO}');
+    AssignField(ActsADOQuery, '${Customer}', 'CUSTOMER_S');
+    AssignField(ActsADOQuery, '${ORDNUM}', 'KD_ORDERNUM');
+    AssignField(ActsADOQuery, '${Pipes}');
+    AssignField(ActsADOQuery, '${Pressure}');
+    AssignField(ActsADOQuery, '${Receiver}', 'RECEIVER_S');
   end;
-  TMyFind(Doc.Content.Find).AssignField(ActsADOQuery, '${Koef}');
-  TMyFind(Doc.Content.Find).AssignField(ActsADOQuery, '${Rustless}');
-  TMyFind(Doc.Content.Find).AssignField(ActsADOQuery, '${ActNo}');
-  if not VarIsNull(ActsADOQuery['ACTDATE']) then begin
-    DD := IntToStr(DayOf(ActsADOQuery['ACTDATE']));
-    Month := FormatDateTime('mmmm', ActsADOQuery['ACTDATE']);
-    Year := IntToStr(YearOf(ActsADOQuery['ACTDATE']));
-  end;
-  with TMyFind(Doc.Content.Find) do begin
-    InnerFind.Text := '${ActDD}';
-    InnerFind.Replacement.Text := DD;
-    FindReplace;
-    InnerFind.Text := '${ActMonth}';
-    InnerFind.Replacement.Text := Month;
-    FindReplace;
-    InnerFind.Text := '${ActYear}';
-    InnerFind.Replacement.Text := Year;
-    FindReplace;
-  end;
-  // Gj ekbwfv ckjyf djlbkb?
-  // Rfr dblyj? yfgjrfp
-  // bpdtcnyj? xnj ckjys d lbrjdbyre e yfc
-  // Nfr pf ckjyjv njkgs ptdfr [jlbkb
-  // Jnrelf yb djpmvbcm? yfdcnhtxe Vjcmrf bv
-  // Edbltdib ckjyf? ye yf ytuj vtnfnmcz
-  // B kfznm? b dbp;fnm b hdfnmcz
-  // Ye? nfr b ktptn d lhfre c ybv
-  // - Cjctlrf? gthtcnfym chfvbnmcz -
-  // Tq ifdrf ujdjhbn - Nt,t km c ckjyjv djpbnmcz
-  // Cvjnhb^ ns e; [hbgbim? f jy bl`n ct,t dgth`l
-  // B kf. ndjtuj cjdctv yt ghbvtxftn
-  // "[? '[ - tq Vjcmrf jndtxftn
-  // - Djn nj-nj vyt b le[e ghblf`n?
-  // Xnj z? cjdctv ,tp lhfrb?
-  // Vjue gjgfcnm d ,jkmibt pf,bzrb
-  // Gecrfq ;t ujdjhzn cj,frb^
-  // Fq? Vjcmrf! Pyfnm? jyf cbkmyf?
-  // Xnj kftn yf ckjyf!
-  TMyFind(Doc.Content.Find).AssignField(ActsADOQuery, '${MasterFIO}');
-  TMyFind(Doc.Content.Find).AssignField(ActsADOQuery, '${ControllerFIO}');
-  TMyFind(Doc.Content.Find).AssignField(ActsADOQuery, '${Customer}', 'CUSTOMER_S');
-  TMyFind(Doc.Content.Find).AssignField(ActsADOQuery, '${ORDNUM}', 'KD_ORDERNUM');
-  TMyFind(Doc.Content.Find).AssignField(ActsADOQuery, '${Pipes}');
-  TMyFind(Doc.Content.Find).AssignField(ActsADOQuery, '${Pressure}');
-  TMyFind(Doc.Content.Find).AssignField(ActsADOQuery, '${Receiver}', 'RECEIVER_S');
   CycleRange := Doc.Bookmarks.Item('Cycle').Range;
   ItogRange := Doc.Bookmarks.Item('Itog').Range;
   EndRange := CycleRange.FormattedText;
@@ -397,35 +394,26 @@ begin
   while not SpADOQuery.Eof do begin
     EndRange.Collapse(wdCollapseEnd);
     EndRange.FormattedText := CycleRange;
-    TMyFind(EndRange.FormattedText.Find).AssignField(SpADOQuery, '${Drawing}');
-    TMyFind(EndRange.FormattedText.Find).AssignField(SpADOQuery, '${Title}');
-    TMyFind(EndRange.FormattedText.Find).AssignField(SpADOQuery, '${Num}');
-    TMyFind(EndRange.FormattedText.Find).AssignField(SpADOQuery, '${Kol}', 'QUANTITY');
-    TMyFind(EndRange.FormattedText.Find).AssignField(SpADOQuery, '${W1}', 'WEIGHT1');
-    TMyFind(EndRange.FormattedText.Find).AssignField(SpADOQuery, '${Wall}', 'WEIGHT');
-    TMyFind(EndRange.FormattedText.Find).AssignField(SpADOQuery, '${Price}', 'PRICE', True);
-    TMyFind(EndRange.FormattedText.Find).AssignField(SpADOQuery, '${Sum}', 'SUM', True);
+    with TMyFind(EndRange.FormattedText.Find) do begin
+      AssignField(SpADOQuery, '${Drawing}');
+      AssignField(SpADOQuery, '${Title}');
+      AssignField(SpADOQuery, '${Num}');
+      AssignField(SpADOQuery, '${Kol}', 'QUANTITY');
+      AssignField(SpADOQuery, '${W1}', 'WEIGHT1');
+      AssignField(SpADOQuery, '${Wall}', 'WEIGHT');
+      AssignField(SpADOQuery, '${Price}', 'PRICE', True);
+      AssignField(SpADOQuery, '${Sum}', 'SUM', True);
+    end;
     ItogKol := ItogKol + SpADOQuery.FieldByName('QUANTITY').AsFloat;
     ItogWall := ItogWall + SpADOQuery.FieldByName('WEIGHT').AsFloat;
     ItogSum := ItogSum + SpADOQuery.FieldByName('SUM').AsFloat;
     SpADOQuery.Next;
   end;
   CycleRange.Rows.Delete;
-  EndRange := ItogRange;
-  with TMyFind(EndRange.FormattedText.Find) do begin
-    InnerFind.Text := '${ItogKol}';
-    InnerFind.Replacement.Text := FloatToStr(ItogKol);
-    FindReplace;
-  end;
-  with TMyFind(EndRange.FormattedText.Find) do begin
-    InnerFind.Text := '${ItogWall}';
-    InnerFind.Replacement.Text := FloatToStr(ItogWall);
-    FindReplace;
-  end;
-  with TMyFind(EndRange.FormattedText.Find) do begin
-    InnerFind.Text := '${ItogSum}';
-    InnerFind.Replacement.Text := FloatToStr(ItogSum);
-    FindReplace;
+  with TMyFind(ItogRange.FormattedText.Find), InnerFind do begin
+    Replace('${ItogKol}', FloatToStr(ItogKol));
+    Replace('${ItogWall}', FloatToStr(ItogWall));
+    Replace('${ItogSum}', FloatToStr(ItogSum));
   end;
   App.Visible := True;
   App.Disconnect;

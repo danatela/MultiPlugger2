@@ -42,35 +42,36 @@ type
     { Public declarations }
     f_nrec:int64;
   end;
-
-TKD = class
- NREC: int64;
- ORDERNUM: string[10];
- ORDERNUM2: string[7];
- INPUTDATE: TDateTime;
- LUPDDATE: TDateTime;
- CCONTRACTOR: int64;
- CONTRACTOR_S: string;
- ACTDATE: TDateTime;
- CONTROL: string[33];
- Procedure Clear;
- Procedure AppendStructToMTE(Var MTE:TMemTableEh;Prefix:string='');
- Procedure FieldsToReport(Var rep:TfrxReport;Prefix:string='');
- Procedure BuildVedomostSpecMTE(Var MTE:TMemTableEh;Var LMTE:TMemTableEh);
- Procedure BuildMVedomostSpecMTE(Var MTE:TMemTableEh;Var LMTE:TMemTableEh);
- Procedure BuildMVedomostSpecMTE2(Var MTE:TMemTableEh;Var LMTE:TMemTableEh);
- Procedure Report(OForm:TComponent;fr3:string);
- Function Save(Dataset:TDataset;Prefix:string=''):boolean;
- Function Read(Var Dataset:TAdoQuery):boolean;
- Function ToForm(Var Form:TKDForm;New:boolean):boolean;
- Function FromForm(Var Form:TKDForm):boolean;
- Function Edit(OForm:TComponent;New:boolean=False):boolean;
- Procedure UpdateContractor_s;
- constructor Create;
- destructor Destroy; override;
+  TKD = class
+    NREC: int64;
+    ORDERNUM: string[10];
+    ORDERNUM2: string[7];
+    INPUTDATE: TDateTime;
+    LUPDDATE: TDateTime;
+    CCONTRACTOR: int64;
+    CONTRACTOR_S: string;
+    ACTDATE: TDateTime;
+    CONTROL: string[33];
+    Procedure Clear;
+    Procedure AppendStructToMTE(Var MTE: TMemTableEh; Prefix: string = '');
+    Procedure FieldsToReport(Var rep: TfrxReport; Prefix: string = '');
+    Procedure BuildVedomostSpecMTE(Var MTE: TMemTableEh; Var LMTE: TMemTableEh);
+    Procedure BuildMVedomostSpecMTE(Var MTE: TMemTableEh;
+      Var LMTE: TMemTableEh);
+    Procedure BuildMVedomostSpecMTE2(Var MTE: TMemTableEh;
+      Var LMTE: TMemTableEh);
+    Procedure Report(OForm: TComponent; fr3: string);
+    Function Save(Dataset: TDataset; Prefix: string = ''): boolean;
+    Function Read(Var Dataset: TADOQuery): boolean;
+    Function ToForm(Var Form: TKDForm; New: boolean): boolean;
+    Function FromForm(Var Form: TKDForm): boolean;
+    Function Edit(OForm: TComponent; New: boolean = False): boolean;
+    Procedure UpdateContractor_s;
+    constructor Create;
+    destructor Destroy; override;
   private
     procedure BuildMVedomostSpecMTE3(var MTE: TMemTableEh);
-end;
+  end;
 
 var
   KDForm: TKDForm;
@@ -772,44 +773,48 @@ End;
 
 Function TKD.Read(Var Dataset:TAdoQuery):boolean;
 Begin
- result:=True;
- Clear;
- Try
- nrec:=Dataset['NREC'];
- ORDERNUM:=Dataset['ORDERNUM'];
- ORDERNUM2:=Dataset['ORDERNUM2'];
- INPUTDATE:=Dataset['INPUTDATE'];
- LUPDDATE:=Dataset['LUPDDATE'];
- CCONTRACTOR:=Dataset['CCONTRACTOR'];
- CONTRACTOR_S:=Dataset['CONTRACTOR_S'];
- ACTDATE:=Dataset['ACTDATE'];
- if not VarIsNull(DataSet['CONTROL']) then CONTROL := DataSet['CONTROL'];
- Except
-  on E: Exception do
-   Begin
-    result:=False;
-    ShowMessage('Ошибка при загрузке информации о заказе! ('+e.Message+')');
-   End;
- End;
+  result:=True;
+  Clear;
+  Try
+    try nrec:=Dataset['NREC']; except end;
+    try ORDERNUM:=Dataset['ORDERNUM']; except end;
+    try ORDERNUM2:=Dataset['ORDERNUM2']; except end;
+    try INPUTDATE:=Dataset['INPUTDATE']; except end;
+    try LUPDDATE:=Dataset['LUPDDATE']; except end;
+    try CCONTRACTOR:=Dataset['CCONTRACTOR']; except end;
+    try CONTRACTOR_S := Dataset['CONTRACTOR_S']; except end;
+    try ACTDATE := Dataset['ACTDATE']; except end;
+    if not VarIsNull(Dataset['CONTROL']) then
+      CONTROL := Dataset['CONTROL'];
+  Except
+    on E: Exception do
+    Begin
+      Result := False;
+      ShowMessage('Ошибка при загрузке информации о заказе! (' +
+        E.Message + ')');
+    End;
+  End;
 End;
 
-Function TKD.Edit(OForm:TComponent;New:boolean=False):boolean;
+Function TKD.Edit(OForm: TComponent; New: boolean = False): boolean;
 Var
- Form: TKDForm;
+  Form: TKDForm;
 begin
- Form:=TKDForm.Create(OForm);
+  Form := TKDForm.Create(OForm);
 
- if ToForm(Form,New) then
+  if ToForm(Form, New) then
   Begin
-   if Form.ShowModal=mrOK then
+    if Form.ShowModal = mrOK then
     Begin
-     result:=FromForm(Form);
-    End else result:=False;
+      Result := FromForm(Form);
+    End
+    else
+      Result := False;
   End;
- Form.Free;
+  Form.Free;
 end;
 
-Function TKD.ToForm(Var Form:TKDForm;New:boolean):boolean;
+Function TKD.ToForm(Var Form: TKDForm;New:boolean):boolean;
 Var
  i:integer;
 Begin
@@ -904,4 +909,3 @@ begin
 end;
 
 end.
-

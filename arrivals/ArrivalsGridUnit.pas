@@ -321,7 +321,9 @@ begin
         else
        Begin
         Host.ADOC.Execute('delete from '+SchemaName+'sparrivals where carrivals='+IntToStr(ar.NREC));
-        Host.ADOC.Execute('delete from '+SchemaName+'arrivals where nrec='+IntToStr(ar.NREC));
+        //Host.ADOC.Execute('delete from '+SchemaName+'arrivals where nrec='+IntToStr(ar.NREC));
+        if ArrivalsADOQ.Locate('nrec', ar.NREC, []) then
+          ArrivalsADOQ.Delete;
        End;
      End
       else
@@ -333,7 +335,6 @@ begin
    End else ShowMessage('Ошибка при попытке добавления в БД нового задания!');
    ArrivalsADOQ.EnableControls;
    ArrivalsGrid.SetFocus;
-   ArrivalsADOQ.Refresh;
    ar.Free;
   End;
 end;

@@ -134,7 +134,6 @@ object ArrivalsGridForm: TArrivalsGridForm
     Align = alRight
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitLeft = 736
     DesignSize = (
       126
       660)

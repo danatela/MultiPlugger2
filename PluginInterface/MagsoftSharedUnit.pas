@@ -320,7 +320,7 @@ Begin
   End
   else
     wh := EmptyStr;
-  ADOQ.SQL.Text := 'select Max(' + FieldName + ') as mnum from ' +
+  ADOQ.SQL.Text := 'select Nvl(Max(' + FieldName + '), 0) as mnum from ' +
     TableName + wh;
   ADOQ.CursorLocation := clUseServer;
   ADOQ.Open;

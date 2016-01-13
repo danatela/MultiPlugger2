@@ -1,6 +1,6 @@
 ﻿[Closed Files]
-File_0=TSourceModule,'C:\home\Документы\RAD Studio\Projects\MultiPlugger2\kd\KDGridUnit.dfm',0,1,1,1,1,0,0,,
-File_1=TSourceModule,'c:\program files\embarcadero\rad studio\9.0\source\data\Data.DB.pas',0,1,5383,3,5406,0,0,,
+File_0=TSourceModule,'C:\home\Документы\RAD Studio\Projects\MultiPlugger2\kd\KDUnit.pas',0,1,36,3,45,0,0,,
+File_1=TSourceModule,'C:\home\Документы\RAD Studio\Projects\MultiPlugger2\kd\KDGridUnit.dfm',0,1,1,1,1,0,0,,
 File_2=TSourceModule,'C:\Users\Karimov-Danil.ZAOMRK\Documents\RAD Studio\Projects\MultiPlugger2\kd\KDGridUnit.pas',0,1,1173,27,1189,0,0,,
 File_3=TSourceModule,'C:\home\Документы\RAD Studio\Projects\MultiPlugger2\MultiPlug2\UPluginLauncher.pas',0,1,112,39,130,0,0,,
 File_4=TSourceModule,'C:\home\Документы\RAD Studio\Projects\MultiPlugger2\PluginInterface\UPlugin.pas',0,1,1,1,29,0,0,,
@@ -14,13 +14,24 @@ File_11=TSourceModule,'c:\program files\embarcadero\rad studio\9.0\source\rtl\wi
 File_12=TSourceModule,'C:\home\Документы\RAD Studio\Projects\MultiPlugger2\MultiPlug2\ULaunchManager.pas',0,1,1,49,10,0,0,,
 
 [Modules]
-Module0=C:\home\Документы\RAD Studio\Projects\MultiPlugger2\ApproveAct\ApproveActUnit.pas
-Module1=C:\home\Документы\RAD Studio\Projects\MultiPlugger2\ApproveAct\EditActUnit.pas
-Module2=C:\home\Документы\RAD Studio\Projects\MultiPlugger2\ImportPlan\ImportPlanUnit.pas
-Module3=C:\home\Документы\RAD Studio\Projects\MultiPlugger2\kd\KDGridUnit.pas
-Module4=default.htm
-Count=5
+Module0=C:\home\Документы\RAD Studio\Projects\MultiPlugger2\kd\KDGridUnit.pas
+Module1=c:\program files\embarcadero\rad studio\9.0\source\data\Data.DB.pas
+Module2=C:\home\Документы\RAD Studio\Projects\MultiPlugger2\ApproveAct\ApproveActUnit.pas
+Module3=C:\home\Документы\RAD Studio\Projects\MultiPlugger2\ApproveAct\EditActUnit.pas
+Module4=C:\home\Документы\RAD Studio\Projects\MultiPlugger2\ImportPlan\ImportPlanUnit.pas
+Module5=default.htm
+Count=6
 EditWindowCount=1
+
+[C:\home\Документы\RAD Studio\Projects\MultiPlugger2\kd\KDGridUnit.pas]
+ModuleType=TSourceModule
+FormState=1
+FormOnTop=0
+
+[c:\program files\embarcadero\rad studio\9.0\source\data\Data.DB.pas]
+ModuleType=TSourceModule
+FormState=0
+FormOnTop=0
 
 [C:\home\Документы\RAD Studio\Projects\MultiPlugger2\ApproveAct\ApproveActUnit.pas]
 ModuleType=TSourceModule
@@ -37,22 +48,18 @@ ModuleType=TSourceModule
 FormState=1
 FormOnTop=0
 
-[C:\home\Документы\RAD Studio\Projects\MultiPlugger2\kd\KDGridUnit.pas]
-ModuleType=TSourceModule
-FormState=1
-FormOnTop=0
-
 [default.htm]
 ModuleType=TURLModule
 
 [EditWindow0]
-ViewCount=5
-CurrentEditView=C:\home\Документы\RAD Studio\Projects\MultiPlugger2\ApproveAct\ApproveActUnit.pas
+ViewCount=6
+CurrentEditView=C:\home\Документы\RAD Studio\Projects\MultiPlugger2\kd\KDGridUnit.pas
 View0=0
 View1=1
 View2=2
 View3=3
 View4=4
+View5=5
 PercentageSizes=1
 Create=1
 Visible=1
@@ -89,15 +96,26 @@ WelcomePageURL=bds:/default.htm
 [View1]
 CustomEditViewType=TEditView
 Module=C:\home\Документы\RAD Studio\Projects\MultiPlugger2\kd\KDGridUnit.pas
-CursorX=1
-CursorY=1
-TopLine=1
+CursorX=19
+CursorY=83
+TopLine=145
 LeftCol=1
 Elisions=
 Bookmarks=
-EditViewName=Borland.FormDesignerView
+EditViewName=C:\home\Документы\RAD Studio\Projects\MultiPlugger2\kd\KDGridUnit.pas
 
 [View2]
+CustomEditViewType=TEditView
+Module=c:\program files\embarcadero\rad studio\9.0\source\data\Data.DB.pas
+CursorX=3
+CursorY=5969
+TopLine=5966
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=c:\program files\embarcadero\rad studio\9.0\source\data\Data.DB.pas
+
+[View3]
 CustomEditViewType=TEditView
 Module=C:\home\Документы\RAD Studio\Projects\MultiPlugger2\ApproveAct\EditActUnit.pas
 CursorX=1
@@ -108,18 +126,18 @@ Elisions=
 Bookmarks=
 EditViewName=Borland.FormDesignerView
 
-[View3]
+[View4]
 CustomEditViewType=TEditView
 Module=C:\home\Документы\RAD Studio\Projects\MultiPlugger2\ApproveAct\ApproveActUnit.pas
-CursorX=1
-CursorY=347
+CursorX=10
+CursorY=339
 TopLine=316
 LeftCol=1
 Elisions=
 Bookmarks=
 EditViewName=C:\home\Документы\RAD Studio\Projects\MultiPlugger2\ApproveAct\ApproveActUnit.pas
 
-[View4]
+[View5]
 CustomEditViewType=TEditView
 Module=C:\home\Документы\RAD Studio\Projects\MultiPlugger2\ImportPlan\ImportPlanUnit.pas
 CursorX=8
@@ -158,7 +176,7 @@ StayOnTop=0
 Count=3
 Breakpoint0='C:\Users\Karimov-Danil.ZAOMRK\Documents\RAD Studio\Projects\MultiPlugger2\kd\KDGridUnit.pas',1189,'',0,1,'',1,0,0,'',1,'','','',0,''
 Breakpoint1='C:\home\Документы\RAD Studio\Projects\MultiPlugger2\kd\KDGridUnit.pas',1189,'',0,1,'',1,0,0,'',1,'','','',0,''
-Breakpoint2='C:\home\Документы\RAD Studio\Projects\MultiPlugger2\ApproveAct\ApproveActUnit.pas',339,'',0,1,'',1,0,0,'',1,'','','',0,''
+Breakpoint2='C:\home\Документы\RAD Studio\Projects\MultiPlugger2\kd\KDGridUnit.pas',558,'',0,1,'',1,0,0,'',1,'','','',0,''
 
 [EmbarcaderoWin64Debugger_AddressBreakpoints]
 Count=0

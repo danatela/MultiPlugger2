@@ -268,8 +268,6 @@ type
     DMarksTotalQueryHOLESDATE: TDateField;
     DMarksTotalQueryHOLESPERSON: TStringField;
     SPGOTADOQueryNREC: TFloatField;
-    SPGOTADOQueryCKD: TFloatField;
-    SPGOTADOQueryCPLANS: TFloatField;
     SPGOTADOQueryCMARK: TFloatField;
     SPGOTADOQueryNUMP: TStringField;
     SPGOTADOQueryCPERSON: TFloatField;
@@ -754,7 +752,7 @@ begin
     DataSet['ZACHIST'] := Result;
     Result := '';
   End;
-  SPGOTADOQuery.Parameters.ParamValues['PCKD;PCMARK;PCPLANS;PNUMP'] := DataSet['NREC;CMARK;CPLANS;NUMP'];
+  SPGOTADOQuery.Parameters.ParamValues['PCMARK;PNUMP'] := DataSet['CMARK;NUMP'];
   if SPGOTADOQuery.Active then
     SPGOTADOQuery.Requery
   else

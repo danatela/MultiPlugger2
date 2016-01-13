@@ -73,7 +73,7 @@ end;
 procedure TEditSpGotForm.FormCreate(Sender: TObject);
 begin
   if ImportPlanForm.PlanLevel = 3 then begin
-    SPGOTADOQuery.Parameters.ParamValues['PCKD;PCPLANS;PCMARK;PNUMP'] := ImportPlanForm.DMarksTotalQuery['NREC;CPLANS;CMARK;NUMP'];
+    SPGOTADOQuery.Parameters.ParamValues['PCMARK;PNUMP'] := ImportPlanForm.DMarksTotalQuery['CMARK;NUMP'];
     SPGOTADOQuery.Open;
     FCaption := Caption;
     OperType := 0;
@@ -120,7 +120,7 @@ var
 begin
   DataSet['OPERTYPE'] := FOperType;
   DataSet['TRIMDATE'] := Trunc(Now);
-  DataSet['CKD;CPLANS;CMARK;NUMP'] := Query.Parameters.ParamValues['PCKD;PCPLANS;PCMARK;PNUMP'];
+  DataSet['CMARK;NUMP'] := Query.Parameters.ParamValues['PCMARK;PNUMP'];
 end;
 
 procedure TEditSpGotForm.SPGOTADOQueryBeforeOpen(DataSet: TDataSet);

@@ -94,6 +94,7 @@ type
     PluginsDataSource: TDataSource;
     GroupsPluginsCDSEditRights: TBooleanField;
     ScanLaunchers: TMenuItem;
+    HotChangeTimer: TJvThreadTimer;
     procedure FormCreate(Sender: TObject);
     procedure Exit2Click(Sender: TObject);
     procedure ScanPluginsClick(Sender: TObject);
@@ -121,6 +122,7 @@ type
     function GetPrivacyParams(Key: string): TValue;
     function GetGroups(Groups: string): TList<Int64>;
     procedure ScanLaunchersClick(Sender: TObject);
+    procedure HotChangeTimerTimer(Sender: TObject);
   private
     Handles: TList<HModule>;
     MenuDict: TDictionary<string, TMenuItem>;
@@ -130,6 +132,7 @@ type
     FCaption: string;
     FFlagClose: string;
     procedure UnRegisterPlugin(I: Integer); overload;
+    procedure UnRegisterPluginByFileName(FileName: string); overload;
     function GetFlagClose: string;
     property FlagClose: string read GetFlagClose write FFlagClose;
     procedure RescanPluginsDir;
@@ -561,6 +564,18 @@ begin
   ActiveMDIChild.Hide;
 end;
 
+procedure TMainForm.HotChangeTimerTimer(Sender: TObject);
+var
+  Files: TStrings;
+begin
+  // rm this after completion
+  Files := GetFiles(AppPath + 'HotPlug\*.bpl');
+  if Files.Count > 0 then begin
+
+  end;
+  Files.Free;
+end;
+
 procedure TMainForm.RefreshLaunchersList;
 begin
   ClearDict;
@@ -599,16 +614,14 @@ begin
     SplashForm := nil;
   end;
   Files.Free;
-  CreateLaunchers;    // создаём лаунчеры
-  RescanLaunchersDir; // читаем список лаунчеров
-  RefreshLaunchersList; // добавляем лаунчеры в меню
+  ScanLaunchersClick(nil);
 end;
 
 procedure TMainForm.ScanLaunchersClick(Sender: TObject);
 begin
-  CreateLaunchers;
-  RescanLaunchersDir;
-  RefreshLaunchersList;
+  CreateLaunchers; // создаём лаунчеры
+  RescanLaunchersDir; // читаем список лаунчеров
+  RefreshLaunchersList; // добавляем лаунчеры в меню
 end;
 
 procedure TMainForm.ScanPluginsClick(Sender: TObject);
@@ -626,7 +639,7 @@ var
   Item, GrItem: TMenuItem;
   I: Integer;
 begin
-  if (Launcher.Name <> '') and not Launcher.Hidden and Launcher.Granted then begin
+  if Launcher.Granted and not Launcher.Hidden and (Launcher.Name <> '') then begin
     Item := TMenuItem.Create(MainMenu);  //Создаём новый пункт меню
     Item.Caption := Launcher.Name;
     Item.Tag := LaunchManager.IndexOf(Launcher);
@@ -740,6 +753,11 @@ procedure TMainForm.UnRegisterPlugin(I: Integer);
 begin
   UnRegisterModuleClasses(Handles[I]);
   UnloadPackage(Handles[I]);
+end;
+
+procedure TMainForm.UnRegisterPluginByFileName(FileName: string);
+begin
+
 end;
 
 procedure TMainForm.UnRegisterPlugin(PluginClass: TClass);

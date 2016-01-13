@@ -384,4 +384,12 @@ object MainForm: TMainForm
     Left = 272
     Top = 8
   end
+  object HotChangeTimer: TJvThreadTimer
+    Interval = 10000
+    KeepAlive = True
+    OnTimer = HotChangeTimerTimer
+    Priority = tpLower
+    Left = 168
+    Top = 168
+  end
 end

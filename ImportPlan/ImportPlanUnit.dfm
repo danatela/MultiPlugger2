@@ -41,626 +41,6 @@ object ImportPlanForm: TImportPlanForm
     TabPosition = tpTop
     OnChange = LevelDockTabSetChange
   end
-  object EnhPlanPanel: TPanel
-    Left = 0
-    Top = 21
-    Width = 636
-    Height = 543
-    Align = alClient
-    BevelOuter = bvNone
-    TabOrder = 2
-    object RightEPPanel: TPanel
-      Left = 445
-      Top = 0
-      Width = 191
-      Height = 543
-      Align = alRight
-      BevelOuter = bvNone
-      TabOrder = 0
-      object BackBitBtn: TBitBtn
-        Left = 6
-        Top = 32
-        Width = 179
-        Height = 88
-        Caption = #1050' '#1088#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1085#1080#1102' (Esc)'
-        TabOrder = 0
-        OnClick = GoBack
-      end
-      object FillPlanBitBtn: TBitBtn
-        Left = 6
-        Top = 126
-        Width = 179
-        Height = 89
-        Caption = #1047#1072#1087#1086#1083#1085#1077#1085#1080#1077' '#1087#1083#1072#1085#1072
-        TabOrder = 1
-        OnClick = FillPlanBitBtnClick
-      end
-      object EnhPlanCoolBar: TCoolBar
-        Left = 0
-        Top = 0
-        Width = 191
-        Height = 22
-        AutoSize = True
-        BandBorderStyle = bsNone
-        Bands = <
-          item
-            Control = EnhPlanToolBar
-            ImageIndex = -1
-            MinHeight = 22
-            Width = 189
-          end>
-        EdgeInner = esNone
-        EdgeOuter = esNone
-        object EnhPlanToolBar: TToolBar
-          Left = 11
-          Top = 0
-          Width = 180
-          Height = 22
-          Caption = 'EditToolBar'
-          Images = IPImageList
-          TabOrder = 0
-          object EPSumToolButton: TToolButton
-            Left = 0
-            Top = 0
-            ImageIndex = 0
-            ParentShowHint = False
-            ShowHint = False
-            Style = tbsCheck
-            OnClick = EPSumToolButtonClick
-          end
-        end
-      end
-    end
-    object ClientEPPanel: TPanel
-      Left = 0
-      Top = 0
-      Width = 445
-      Height = 543
-      Align = alClient
-      BevelOuter = bvNone
-      TabOrder = 1
-      object EPSplitter: TSplitter
-        Left = 0
-        Top = 221
-        Width = 445
-        Height = 3
-        Cursor = crVSplit
-        Align = alTop
-        ExplicitLeft = -6
-        ExplicitTop = 47
-        ExplicitWidth = 466
-      end
-      object DMarksDBGridEh: TDBGridEh
-        Left = 0
-        Top = 224
-        Width = 445
-        Height = 298
-        Align = alClient
-        DataSource = DMarksDataSource
-        DynProps = <>
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        FooterRowCount = 1
-        FooterParams.Color = clWindow
-        IndicatorOptions = [gioShowRowIndicatorEh]
-        OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghAutoSortMarking, dghMultiSortMarking, dghDialogFind, dghColumnResize, dghColumnMove, dghExtendVertLines]
-        ParentFont = False
-        RowHeight = 50
-        SortLocal = True
-        STFilter.Local = True
-        STFilter.Location = stflInTitleFilterEh
-        STFilter.Visible = True
-        TabOrder = 0
-        TitleParams.MultiTitle = True
-        Columns = <
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'ORDERNUM2'
-            Footer.Value = #1050#1086#1083'-'#1074#1086':'
-            Footer.ValueType = fvtStaticText
-            Footers = <>
-            TextEditing = False
-            Title.TitleButton = True
-            Width = 62
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'NUMP'
-            Footer.ValueType = fvtCount
-            Footers = <>
-            TextEditing = False
-            Title.TitleButton = True
-            Width = 70
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'GRMATERIALS_S'
-            Footer.Value = #1048#1090#1086#1075#1080':'
-            Footer.ValueType = fvtStaticText
-            Footers = <>
-            TextEditing = False
-            Width = 147
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'NUMCOUNT'
-            Footer.ValueType = fvtSum
-            Footers = <>
-            TextEditing = False
-            Width = 70
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'WEIGHT1'
-            Footer.ValueType = fvtAvg
-            Footers = <>
-            TextEditing = False
-            Title.Caption = #1042#1077#1089' '#1074' '#1082#1075'|1'#1096#1090
-            Width = 100
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'WEIGHT'
-            Footer.ValueType = fvtSum
-            Footers = <>
-            TextEditing = False
-            Title.Caption = #1042#1077#1089' '#1074' '#1082#1075'|'#1086#1073#1097'.'
-            Width = 100
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'PROP_STEELMARK_C'
-            Footers = <>
-            TextEditing = False
-            Width = 97
-          end
-          item
-            AlwaysShowEditButton = True
-            ButtonStyle = cbsEllipsis
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'RAZMET'
-            Footers = <>
-            Title.Caption = #1056#1072#1079#1084#1077#1090#1082#1072'|'#1086#1087#1080#1089#1072#1085#1080#1077
-            OnEditButtonClick = EditButtonClick
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'RAZMETDATE'
-            Footers = <>
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'RAZMETPERSON'
-            Footers = <>
-            Width = 124
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'RAZMETKOL'
-            Footers = <>
-          end
-          item
-            AlwaysShowEditButton = True
-            ButtonStyle = cbsEllipsis
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'REZKA'
-            Footers = <>
-            Tag = 1
-            Title.Caption = #1056#1077#1079#1082#1072'|'#1086#1087#1080#1089#1072#1085#1080#1077
-            Width = 130
-            OnEditButtonClick = EditButtonClick
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'TRIMDATE'
-            Footers = <>
-            Tag = 1
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'TRIMMED'
-            Footers = <>
-            Tag = 1
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'PUT'
-            Footers = <>
-            Tag = 1
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'TRIMDUTY'
-            Footers = <>
-            Tag = 1
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'PERSON'
-            Footers = <>
-            Tag = 1
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'PASSPORT'
-            Footers = <>
-            Tag = 1
-          end
-          item
-            AlwaysShowEditButton = True
-            ButtonStyle = cbsEllipsis
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'ZACHIST'
-            Footers = <>
-            Tag = 2
-            Title.Caption = #1047#1072#1095#1080#1089#1090#1082#1072'|'#1086#1087#1080#1089#1072#1085#1080#1077
-            Width = 124
-            OnEditButtonClick = EditButtonClick
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'ZACHISTDATE'
-            Footers = <>
-            Tag = 2
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'ZACHISTPERSON'
-            Footers = <>
-            Tag = 2
-            Width = 124
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'ZACHISTKOL'
-            Footers = <>
-            Tag = 2
-          end
-          item
-            AlwaysShowEditButton = True
-            ButtonStyle = cbsEllipsis
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'STROZH'
-            Footers = <>
-            Tag = 3
-            Title.Caption = #1057#1090#1088#1086#1078#1082#1072'|'#1086#1087#1080#1089#1072#1085#1080#1077
-            Width = 124
-            OnEditButtonClick = EditButtonClick
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'STROZHDATE'
-            Footers = <>
-            Tag = 3
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'STROZHPERSON'
-            Footers = <>
-            Tag = 3
-            Width = 124
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'STROZHKOL'
-            Footers = <>
-            Tag = 3
-          end
-          item
-            AlwaysShowEditButton = True
-            ButtonStyle = cbsEllipsis
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'OTVERST'
-            Footers = <>
-            Tag = 4
-            Title.Caption = #1054#1090#1074#1077#1088#1089#1090#1080#1103'|'#1086#1087#1080#1089#1072#1085#1080#1077
-            Width = 124
-            OnEditButtonClick = EditButtonClick
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'HOLESDATE'
-            Footers = <>
-            Tag = 4
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'HOLESPERSON'
-            Footers = <>
-            Tag = 4
-            Width = 124
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'HOLESKOL'
-            Footers = <>
-            Tag = 4
-          end
-          item
-            AlwaysShowEditButton = True
-            ButtonStyle = cbsEllipsis
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'GIBKA'
-            Footers = <>
-            Tag = 5
-            Title.Caption = #1043#1080#1073#1082#1072'|'#1086#1087#1080#1089#1072#1085#1080#1077
-            Width = 124
-            OnEditButtonClick = EditButtonClick
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'BENDINGDATE'
-            Footers = <>
-            Tag = 5
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'BENDINGPERSON'
-            Footers = <>
-            Tag = 5
-            Width = 124
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'BENDINGKOL'
-            Footers = <>
-            Tag = 5
-          end
-          item
-            DynProps = <>
-            EditButtons = <>
-            FieldName = 'PRIM'
-            Footers = <>
-            TextEditing = False
-            Width = 637
-          end>
-        object RowDetailData: TRowDetailPanelControlEh
-        end
-      end
-      object TopEPPanel: TPanel
-        Left = 0
-        Top = 0
-        Width = 445
-        Height = 221
-        Align = alTop
-        BevelOuter = bvNone
-        TabOrder = 1
-        object PlanMarksSplitter: TSplitter
-          Left = 260
-          Top = 0
-          Height = 221
-          Align = alRight
-          ExplicitLeft = 284
-        end
-        object PlanMarksTotalDBGridEh: TDBGridEh
-          Left = 263
-          Top = 0
-          Width = 182
-          Height = 221
-          Align = alRight
-          DataSource = PlanMarksTotalDataSource
-          DynProps = <>
-          FooterParams.Color = clWindow
-          IndicatorOptions = [gioShowRowIndicatorEh]
-          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-          TabOrder = 1
-          Columns = <
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'ORDN'
-              Footers = <>
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'NAME'
-              Footers = <>
-              Width = 150
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'SUM(SPPLANS.KOLSHT)'
-              Footers = <>
-              Width = 70
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'AVG(MARKS.WEIGHT1)'
-              Footers = <>
-              Width = 70
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'SUM(SPPLANS.WEIGHT1)'
-              Footers = <>
-              Width = 70
-            end>
-          object RowDetailData: TRowDetailPanelControlEh
-          end
-        end
-        object PlanMarksDBGridEh: TDBGridEh
-          Left = 0
-          Top = 0
-          Width = 260
-          Height = 221
-          Align = alClient
-          DataSource = PlanMarksDataSource
-          DynProps = <>
-          FooterParams.Color = clWindow
-          IndicatorOptions = [gioShowRowIndicatorEh]
-          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-          OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghAutoSortMarking, dghMultiSortMarking, dghDialogFind, dghColumnResize, dghColumnMove, dghExtendVertLines]
-          SortLocal = True
-          STFilter.Local = True
-          STFilter.Visible = True
-          TabOrder = 0
-          OnDrawDataCell = PlanMarksDBGridEhDrawDataCell
-          Columns = <
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'CONTRACTOR_S'
-              Footers = <>
-              Width = 100
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'RECIPIENT_S'
-              Footers = <>
-              Width = 100
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'ORDERNUM'
-              Footers = <>
-              Title.TitleButton = True
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'ORDERNUM2'
-              Footers = <>
-              Title.TitleButton = True
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'ORDN'
-              Footers = <>
-              Title.TitleButton = True
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'NAME'
-              Footers = <>
-              Width = 200
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'KOLSHT'
-              Footers = <>
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'WEIGHT1'
-              Footers = <>
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'WEIGHT1_1'
-              Footers = <>
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'SBORKA'
-              Footers = <>
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'SVARKA'
-              Footers = <>
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'ZACHIST'
-              Footers = <>
-              Width = 59
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'GRPOKR'
-              Footers = <>
-              Width = 123
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'DOVODKA'
-              Footers = <>
-            end
-            item
-              DynProps = <>
-              EditButtons = <>
-              FieldName = 'RELDATE'
-              Footers = <>
-            end>
-          object RowDetailData: TRowDetailPanelControlEh
-          end
-        end
-      end
-      object DMarksTabSet: TTabSet
-        Left = 0
-        Top = 522
-        Width = 445
-        Height = 21
-        Align = alBottom
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        SoftTop = True
-        Style = tsSoftTabs
-        Tabs.Strings = (
-          #1044#1077#1090#1072#1083#1080' '#1085#1072' '#1074#1077#1089#1100' '#1087#1083#1072#1085
-          #1044#1077#1090#1072#1083#1080' '#1085#1072' '#1074#1077#1089#1100' '#1079#1072#1082#1072#1079
-          #1044#1077#1090#1072#1083#1080' '#1085#1072' '#1076#1072#1085#1085#1091#1102' '#1089#1090#1088#1086#1082#1091' '#1087#1083#1072#1085#1072)
-        TabIndex = 0
-        OnChange = DMarksTabSetChange
-      end
-    end
-  end
   object EditPanel: TPanel
     Left = 0
     Top = 21
@@ -1870,6 +1250,626 @@ object ImportPlanForm: TImportPlanForm
             OnClick = SumToolButtonClick
           end
         end
+      end
+    end
+  end
+  object EnhPlanPanel: TPanel
+    Left = 0
+    Top = 21
+    Width = 636
+    Height = 543
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 2
+    object RightEPPanel: TPanel
+      Left = 445
+      Top = 0
+      Width = 191
+      Height = 543
+      Align = alRight
+      BevelOuter = bvNone
+      TabOrder = 0
+      object BackBitBtn: TBitBtn
+        Left = 6
+        Top = 32
+        Width = 179
+        Height = 88
+        Caption = #1050' '#1088#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1085#1080#1102' (Esc)'
+        TabOrder = 0
+        OnClick = GoBack
+      end
+      object FillPlanBitBtn: TBitBtn
+        Left = 6
+        Top = 126
+        Width = 179
+        Height = 89
+        Caption = #1047#1072#1087#1086#1083#1085#1077#1085#1080#1077' '#1087#1083#1072#1085#1072
+        TabOrder = 1
+        OnClick = FillPlanBitBtnClick
+      end
+      object EnhPlanCoolBar: TCoolBar
+        Left = 0
+        Top = 0
+        Width = 191
+        Height = 22
+        AutoSize = True
+        BandBorderStyle = bsNone
+        Bands = <
+          item
+            Control = EnhPlanToolBar
+            ImageIndex = -1
+            MinHeight = 22
+            Width = 189
+          end>
+        EdgeInner = esNone
+        EdgeOuter = esNone
+        object EnhPlanToolBar: TToolBar
+          Left = 11
+          Top = 0
+          Width = 180
+          Height = 22
+          Caption = 'EditToolBar'
+          Images = IPImageList
+          TabOrder = 0
+          object EPSumToolButton: TToolButton
+            Left = 0
+            Top = 0
+            ImageIndex = 0
+            ParentShowHint = False
+            ShowHint = False
+            Style = tbsCheck
+            OnClick = EPSumToolButtonClick
+          end
+        end
+      end
+    end
+    object ClientEPPanel: TPanel
+      Left = 0
+      Top = 0
+      Width = 445
+      Height = 543
+      Align = alClient
+      BevelOuter = bvNone
+      TabOrder = 1
+      object EPSplitter: TSplitter
+        Left = 0
+        Top = 221
+        Width = 445
+        Height = 3
+        Cursor = crVSplit
+        Align = alTop
+        ExplicitLeft = -6
+        ExplicitTop = 47
+        ExplicitWidth = 466
+      end
+      object DMarksDBGridEh: TDBGridEh
+        Left = 0
+        Top = 224
+        Width = 445
+        Height = 298
+        Align = alClient
+        DataSource = DMarksDataSource
+        DynProps = <>
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        FooterRowCount = 1
+        FooterParams.Color = clWindow
+        IndicatorOptions = [gioShowRowIndicatorEh]
+        OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghAutoSortMarking, dghMultiSortMarking, dghDialogFind, dghColumnResize, dghColumnMove, dghExtendVertLines]
+        ParentFont = False
+        RowHeight = 50
+        SortLocal = True
+        STFilter.Local = True
+        STFilter.Location = stflInTitleFilterEh
+        STFilter.Visible = True
+        TabOrder = 0
+        TitleParams.MultiTitle = True
+        Columns = <
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'ORDERNUM2'
+            Footer.Value = #1050#1086#1083'-'#1074#1086':'
+            Footer.ValueType = fvtStaticText
+            Footers = <>
+            TextEditing = False
+            Title.TitleButton = True
+            Width = 62
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'NUMP'
+            Footer.ValueType = fvtCount
+            Footers = <>
+            TextEditing = False
+            Title.TitleButton = True
+            Width = 70
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'GRMATERIALS_S'
+            Footer.Value = #1048#1090#1086#1075#1080':'
+            Footer.ValueType = fvtStaticText
+            Footers = <>
+            TextEditing = False
+            Width = 147
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'NUMCOUNT'
+            Footer.ValueType = fvtSum
+            Footers = <>
+            TextEditing = False
+            Width = 70
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'WEIGHT1'
+            Footer.ValueType = fvtAvg
+            Footers = <>
+            TextEditing = False
+            Title.Caption = #1042#1077#1089' '#1074' '#1082#1075'|1'#1096#1090
+            Width = 100
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'WEIGHT'
+            Footer.ValueType = fvtSum
+            Footers = <>
+            TextEditing = False
+            Title.Caption = #1042#1077#1089' '#1074' '#1082#1075'|'#1086#1073#1097'.'
+            Width = 100
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'PROP_STEELMARK_C'
+            Footers = <>
+            TextEditing = False
+            Width = 97
+          end
+          item
+            AlwaysShowEditButton = True
+            ButtonStyle = cbsEllipsis
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'RAZMET'
+            Footers = <>
+            Title.Caption = #1056#1072#1079#1084#1077#1090#1082#1072'|'#1086#1087#1080#1089#1072#1085#1080#1077
+            OnEditButtonClick = EditButtonClick
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'RAZMETDATE'
+            Footers = <>
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'RAZMETPERSON'
+            Footers = <>
+            Width = 124
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'RAZMETKOL'
+            Footers = <>
+          end
+          item
+            AlwaysShowEditButton = True
+            ButtonStyle = cbsEllipsis
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'REZKA'
+            Footers = <>
+            Tag = 1
+            Title.Caption = #1056#1077#1079#1082#1072'|'#1086#1087#1080#1089#1072#1085#1080#1077
+            Width = 130
+            OnEditButtonClick = EditButtonClick
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'TRIMDATE'
+            Footers = <>
+            Tag = 1
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'TRIMMED'
+            Footers = <>
+            Tag = 1
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'PUT'
+            Footers = <>
+            Tag = 1
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'TRIMDUTY'
+            Footers = <>
+            Tag = 1
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'PERSON'
+            Footers = <>
+            Tag = 1
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'PASSPORT'
+            Footers = <>
+            Tag = 1
+          end
+          item
+            AlwaysShowEditButton = True
+            ButtonStyle = cbsEllipsis
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'ZACHIST'
+            Footers = <>
+            Tag = 2
+            Title.Caption = #1047#1072#1095#1080#1089#1090#1082#1072'|'#1086#1087#1080#1089#1072#1085#1080#1077
+            Width = 124
+            OnEditButtonClick = EditButtonClick
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'ZACHISTDATE'
+            Footers = <>
+            Tag = 2
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'ZACHISTPERSON'
+            Footers = <>
+            Tag = 2
+            Width = 124
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'ZACHISTKOL'
+            Footers = <>
+            Tag = 2
+          end
+          item
+            AlwaysShowEditButton = True
+            ButtonStyle = cbsEllipsis
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'STROZH'
+            Footers = <>
+            Tag = 3
+            Title.Caption = #1057#1090#1088#1086#1078#1082#1072'|'#1086#1087#1080#1089#1072#1085#1080#1077
+            Width = 124
+            OnEditButtonClick = EditButtonClick
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'STROZHDATE'
+            Footers = <>
+            Tag = 3
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'STROZHPERSON'
+            Footers = <>
+            Tag = 3
+            Width = 124
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'STROZHKOL'
+            Footers = <>
+            Tag = 3
+          end
+          item
+            AlwaysShowEditButton = True
+            ButtonStyle = cbsEllipsis
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'OTVERST'
+            Footers = <>
+            Tag = 4
+            Title.Caption = #1054#1090#1074#1077#1088#1089#1090#1080#1103'|'#1086#1087#1080#1089#1072#1085#1080#1077
+            Width = 124
+            OnEditButtonClick = EditButtonClick
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'HOLESDATE'
+            Footers = <>
+            Tag = 4
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'HOLESPERSON'
+            Footers = <>
+            Tag = 4
+            Width = 124
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'HOLESKOL'
+            Footers = <>
+            Tag = 4
+          end
+          item
+            AlwaysShowEditButton = True
+            ButtonStyle = cbsEllipsis
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'GIBKA'
+            Footers = <>
+            Tag = 5
+            Title.Caption = #1043#1080#1073#1082#1072'|'#1086#1087#1080#1089#1072#1085#1080#1077
+            Width = 124
+            OnEditButtonClick = EditButtonClick
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'BENDINGDATE'
+            Footers = <>
+            Tag = 5
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'BENDINGPERSON'
+            Footers = <>
+            Tag = 5
+            Width = 124
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'BENDINGKOL'
+            Footers = <>
+            Tag = 5
+          end
+          item
+            DynProps = <>
+            EditButtons = <>
+            FieldName = 'PRIM'
+            Footers = <>
+            TextEditing = False
+            Width = 637
+          end>
+        object RowDetailData: TRowDetailPanelControlEh
+        end
+      end
+      object TopEPPanel: TPanel
+        Left = 0
+        Top = 0
+        Width = 445
+        Height = 221
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 1
+        object PlanMarksSplitter: TSplitter
+          Left = 260
+          Top = 0
+          Height = 221
+          Align = alRight
+          ExplicitLeft = 284
+        end
+        object PlanMarksTotalDBGridEh: TDBGridEh
+          Left = 263
+          Top = 0
+          Width = 182
+          Height = 221
+          Align = alRight
+          DataSource = PlanMarksTotalDataSource
+          DynProps = <>
+          FooterParams.Color = clWindow
+          IndicatorOptions = [gioShowRowIndicatorEh]
+          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+          TabOrder = 1
+          Columns = <
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'ORDN'
+              Footers = <>
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'NAME'
+              Footers = <>
+              Width = 150
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'SUM(SPPLANS.KOLSHT)'
+              Footers = <>
+              Width = 70
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'AVG(MARKS.WEIGHT1)'
+              Footers = <>
+              Width = 70
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'SUM(SPPLANS.WEIGHT1)'
+              Footers = <>
+              Width = 70
+            end>
+          object RowDetailData: TRowDetailPanelControlEh
+          end
+        end
+        object PlanMarksDBGridEh: TDBGridEh
+          Left = 0
+          Top = 0
+          Width = 260
+          Height = 221
+          Align = alClient
+          DataSource = PlanMarksDataSource
+          DynProps = <>
+          FooterParams.Color = clWindow
+          IndicatorOptions = [gioShowRowIndicatorEh]
+          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+          OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghAutoSortMarking, dghMultiSortMarking, dghDialogFind, dghColumnResize, dghColumnMove, dghExtendVertLines]
+          SortLocal = True
+          STFilter.Local = True
+          STFilter.Visible = True
+          TabOrder = 0
+          OnDrawDataCell = PlanMarksDBGridEhDrawDataCell
+          Columns = <
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'CONTRACTOR_S'
+              Footers = <>
+              Width = 100
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'RECIPIENT_S'
+              Footers = <>
+              Width = 100
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'ORDERNUM'
+              Footers = <>
+              Title.TitleButton = True
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'ORDERNUM2'
+              Footers = <>
+              Title.TitleButton = True
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'ORDN'
+              Footers = <>
+              Title.TitleButton = True
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'NAME'
+              Footers = <>
+              Width = 200
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'KOLSHT'
+              Footers = <>
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'WEIGHT1'
+              Footers = <>
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'WEIGHT1_1'
+              Footers = <>
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'SBORKA'
+              Footers = <>
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'SVARKA'
+              Footers = <>
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'ZACHIST'
+              Footers = <>
+              Width = 59
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'GRPOKR'
+              Footers = <>
+              Width = 123
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'DOVODKA'
+              Footers = <>
+            end
+            item
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'RELDATE'
+              Footers = <>
+            end>
+          object RowDetailData: TRowDetailPanelControlEh
+          end
+        end
+      end
+      object DMarksTabSet: TTabSet
+        Left = 0
+        Top = 522
+        Width = 445
+        Height = 21
+        Align = alBottom
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        SoftTop = True
+        Style = tsSoftTabs
+        Tabs.Strings = (
+          #1044#1077#1090#1072#1083#1080' '#1085#1072' '#1074#1077#1089#1100' '#1087#1083#1072#1085
+          #1044#1077#1090#1072#1083#1080' '#1085#1072' '#1074#1077#1089#1100' '#1079#1072#1082#1072#1079
+          #1044#1077#1090#1072#1083#1080' '#1085#1072' '#1076#1072#1085#1085#1091#1102' '#1089#1090#1088#1086#1082#1091' '#1087#1083#1072#1085#1072)
+        TabIndex = 0
+        OnChange = DMarksTabSetChange
       end
     end
   end
@@ -4071,12 +4071,6 @@ object ImportPlanForm: TImportPlanForm
     Top = 416
     object SPGOTADOQueryNREC: TFloatField
       FieldName = 'NREC'
-    end
-    object SPGOTADOQueryCKD: TFloatField
-      FieldName = 'CKD'
-    end
-    object SPGOTADOQueryCPLANS: TFloatField
-      FieldName = 'CPLANS'
     end
     object SPGOTADOQueryCMARK: TFloatField
       FieldName = 'CMARK'
